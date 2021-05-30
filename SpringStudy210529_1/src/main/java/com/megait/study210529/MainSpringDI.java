@@ -1,5 +1,7 @@
 package com.megait.study210529;
 
+import Config.AppConfImport2;
+import Config.AppConfigImport;
 import Config.AppCtx;
 import Reception.DuplicateMemberException;
 import Reception.MemberNotFoundException;
@@ -15,7 +17,10 @@ public class MainSpringDI {
     private static AnnotationConfigApplicationContext ctx = null;
 
     public static void main(String[] args) {
-        ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+        //ctx = new AnnotationConfigApplicationContext(AppCtx.class, AppConfig2.class);
+        //ctx = new AnnotationConfigApplicationContext(AppCtx.class);
+        //ctx = new AnnotationConfigApplicationContext(AppConfigImport.class);
+        ctx = new AnnotationConfigApplicationContext(AppConfImport2.class);
 
         // 콘솔에서 입력받기 위해 System.in 을 이용해서 BufferedReader 생성
         BufferedReader reader =
