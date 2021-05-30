@@ -3,9 +3,7 @@ package config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import spring.ChangePasswordService;
-import spring.MemberDao;
-import spring.MemberRegisterService;
+import spring.*;
 
 @Configuration
 public class AppCtx {
@@ -29,8 +27,16 @@ public class AppCtx {
         return MemberRegisterService;
     }
 
-    public void setMember(MemberDao memberDao) {
-        this.memberDao = memberDao;
+    @Bean
+    public MemberInfoPrinter infoPrinter() {
+        MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
+        return infoPrinter;
+    }
+
+    @Bean
+    public MemberPrinter memberPrinter() {
+        MemberPrinter memberPrinter = new MemberPrinter();
+        return memberPrinter;
     }
 
 
