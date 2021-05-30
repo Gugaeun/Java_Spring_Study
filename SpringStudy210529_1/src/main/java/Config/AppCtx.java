@@ -42,6 +42,11 @@ public class AppCtx {
     public MemberInfoPrinter infoPrinter() {
         MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
 
+        //의존 객체 주입
+
+        infoPrinter.setMemberDao(memberDao());
+        infoPrinter.setPrinter(memberPrinter());
+
         return infoPrinter;
     }
 

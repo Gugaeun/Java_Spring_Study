@@ -51,18 +51,40 @@ public class MainSpringDI {
                     continue;
                 }
                 // 가입한 회원정보 단 건 출력하기
-                // 사용예: list test1@abc.com
-                if(command.equals("info")) {
+                // 사용예: info test1@abc.com
+                if(command.startsWith("info")) {
                     processInfoCommand(command.split(" "));
                     continue;
                 }
+
+                // 프로그램 버전 출력하기
+                // 사용예: version
+                if (command.equals("version")) {
+                    processInfoCommand(command.split(" "));
+                    continue;
+                }
+
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
+    private static void processVersionCommand() {
+        VersionPrinter versionPrinter =
+                ctx.getBean("versionPrinter", VersionPrinter.class);
+        versionPrinter.print();
+    }
 
+    private static void processInfoCommand(String[] arg) {
+        if(arg.length != 2) {   //명령어를 잘못 입력한 경우
+            printHelp();
+            return;
+        }
+
+        MemberInfoPrinter infoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
+        infoPrinter.printMemberInfo(arg[1]);
+    }
 
     // 새로운 회원 정보 가입 메소드
     private static void processNewCommand(String[] arg) {
@@ -128,15 +150,7 @@ public class MainSpringDI {
         System.out.println("change 이메일 현재비번 변경비번");
         System.out.println();
     }
-    private static void processInfoCommand(String[] arg) {
-        if(arg.length != 2) {   //명령어를 잘못 입력한 경우
-            printHelp();
-            return;
-        }
 
-        MemberInfoPrinter infoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
-        infoPrinter.printMemberInfo(arg[1]);
-    }
 
 }
 

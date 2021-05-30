@@ -15,4 +15,14 @@ public class MemberInfoPrinter {
         printer.print(member);
         System.out.println();
     }
+
+    //의존 주입을 위한 setter 메서드
+
+    public void setMemberDao(MemberDao memberDao) {
+        this.memberDao = memberDao;
+    }
+
+    public void setPrinter(MemberPrinter memberPrinter) {
+        this.printer = printer;
+    }
 }
