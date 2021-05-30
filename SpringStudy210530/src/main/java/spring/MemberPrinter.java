@@ -1,11 +1,15 @@
 package spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
+
 import java.time.format.DateTimeFormatter;
 
 public class MemberPrinter {
     private DateTimeFormatter dateTimeFormatter;
 
-    public void setDateTimeFormatter(DateTimeFormatter dateTimeFormatter) {
+    @Autowired
+    public void setDateTimeFormatter(@Nullable DateTimeFormatter dateTimeFormatter) {
         dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     }
 
