@@ -2,9 +2,7 @@ package Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import spring.ChangePasswordService;
-import spring.MemberDao;
-import spring.MemberRegisterService;
+import spring.*;
 
 //@Configuration : 스프링 설정 클래스를 의미한다.
 @Configuration
@@ -29,4 +27,22 @@ public class AppCtx {
         passwordService.setMemberDao(memberDao());
         return passwordService;
     }
+
+    @Bean
+    public MemberPrinter memberPrinter() {
+        return new MemberPrinter();
+    }
+
+    @Bean
+    public MemberListPrinter listPrinter() {
+        return new MemberListPrinter(memberDao(), memberPrinter());
+    }
+
+    @Bean
+    public MemberInfoPrinter infoPrinter() {
+        MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
+
+        return infoPrinter;
+    }
+
 }

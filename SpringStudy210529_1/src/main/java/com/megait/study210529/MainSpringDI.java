@@ -5,10 +5,7 @@ import Reception.DuplicateMemberException;
 import Reception.MemberNotFoundException;
 import Reception.WrongIdPasswordException;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.ChangePasswordService;
-import spring.MemberListPrinter;
-import spring.MemberRegisterService;
-import spring.RegisterRequest;
+import spring.*;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -47,9 +44,16 @@ public class MainSpringDI {
                     processChangeCommand(command.split(" "));
                     continue;
                 }
-
+                // 그동안 가입한 회원정보들의 리스트 출력하기
+                // 사용예: list
                 if(command.equals("list")) {
                     processListCommand();
+                    continue;
+                }
+                // 가입한 회원정보 단 건 출력하기
+                // 사용예: list test1@abc.com
+                if(command.equals("info")) {
+                    processInfoCommand(command.split(" "));
                     continue;
                 }
             } catch (Exception e) {
@@ -57,6 +61,8 @@ public class MainSpringDI {
             }
         }
     }
+
+
 
     // 새로운 회원 정보 가입 메소드
     private static void processNewCommand(String[] arg) {
@@ -122,5 +128,15 @@ public class MainSpringDI {
         System.out.println("change 이메일 현재비번 변경비번");
         System.out.println();
     }
+    private static void processInfoCommand(String[] arg) {
+        if(arg.length != 2) {   //명령어를 잘못 입력한 경우
+            printHelp();
+            return;
+        }
+
+        MemberInfoPrinter infoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
+        infoPrinter.printMemberInfo(arg[1]);
+    }
+
 }
 
