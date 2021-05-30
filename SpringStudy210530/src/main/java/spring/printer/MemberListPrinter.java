@@ -2,11 +2,13 @@ package spring.printer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import spring.Dao.MemberDao;
 import spring.empty.Member;
 
 import java.util.Collection;
 
+@Component("listPrinter")
 public class MemberListPrinter {
     private MemberDao memberDao;
     private MemberPrinter printer;
