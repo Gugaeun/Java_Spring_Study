@@ -1,6 +1,8 @@
-package spring;
+package spring.printer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import spring.Dao.MemberDao;
+import spring.empty.Member;
 
 public class MemberInfoPrinter {
     private MemberDao memberDao;

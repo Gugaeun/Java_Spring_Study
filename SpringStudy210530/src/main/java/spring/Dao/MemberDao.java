@@ -1,4 +1,6 @@
-package spring;
+package spring.Dao;
+
+import spring.empty.Member;
 
 import java.util.Collection;
 import java.util.HashMap;

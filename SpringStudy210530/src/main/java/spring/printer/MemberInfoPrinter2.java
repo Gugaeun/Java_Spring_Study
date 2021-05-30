@@ -1,4 +1,4 @@
-package spring;
+package spring.printer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

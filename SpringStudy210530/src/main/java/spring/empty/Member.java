@@ -1,4 +1,4 @@
-package spring;
+package spring.empty;
 
 import exception.WrongIdPasswordException;
 

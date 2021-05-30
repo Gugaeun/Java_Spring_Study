@@ -1,10 +1,14 @@
 package config;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import spring.*;
+import spring.Dao.MemberDao;
+import spring.Service.ChangePasswordService;
+import spring.Service.MemberRegisterService;
+import spring.printer.MemberInfoPrinter;
+import spring.printer.MemberPrinter;
+import spring.printer.MemberSummaryPrinter;
 
 @Configuration
 public class AppCtx {

@@ -3,8 +3,8 @@ package config;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import spring.MemberInfoPrinter2;
-import spring.MemberPrinter;
+import spring.printer.MemberInfoPrinter2;
+import spring.printer.MemberPrinter;
 
 @Configuration
 public class AppCtx2 {

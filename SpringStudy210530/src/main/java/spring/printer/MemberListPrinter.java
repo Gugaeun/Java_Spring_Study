@@ -1,7 +1,9 @@
-package spring;
+package spring.printer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import spring.Dao.MemberDao;
+import spring.empty.Member;
 
 import java.util.Collection;
 

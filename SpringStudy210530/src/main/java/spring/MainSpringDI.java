@@ -1,13 +1,17 @@
-package main;
+package spring;
 
-import config.AppCtx;
 import config.AppCtx2;
 import exception.DuplicateMemberDaoException;
 import exception.MemberNotFoundException;
 import exception.WrongIdPasswordException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.*;
+import spring.Service.ChangePasswordService;
+import spring.Service.MemberRegisterService;
+import spring.empty.RegisterRequest;
+import spring.printer.MemberInfoPrinter;
+import spring.printer.MemberListPrinter;
+import spring.printer.MemberPrinter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,4 +1,4 @@
-package spring;
+package spring.empty;
 
 public class RegisterRequest {
     private String email;                     // 회원이 가지는 이메일(고객이 입력)

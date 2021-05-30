@@ -1,7 +1,10 @@
-package spring;
+package spring.Service;
 
 import exception.DuplicateMemberDaoException;
 import org.springframework.beans.factory.annotation.Autowired;
+import spring.empty.Member;
+import spring.Dao.MemberDao;
+import spring.empty.RegisterRequest;
 
 import java.time.LocalDateTime;
 

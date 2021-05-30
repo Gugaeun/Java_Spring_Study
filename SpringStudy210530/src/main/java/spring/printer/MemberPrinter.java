@@ -1,7 +1,8 @@
-package spring;
+package spring.printer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import spring.empty.Member;
 
 import java.time.format.DateTimeFormatter;
 

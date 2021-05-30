@@ -1,7 +1,9 @@
-package spring;
+package spring.Service;
 
 import exception.MemberNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import spring.empty.Member;
+import spring.Dao.MemberDao;
 
 public class ChangePasswordService {
     @Autowired
