@@ -22,7 +22,7 @@ public class MemberInfoPrinter {
         this.memberDao = memberDao;
     }
     @Autowired
-    public void setPrinter(MemberPrinter printer) {
+    public void setMemberPinter(MemberPrinter printer) {
         this.printer = printer;
     }
 }
