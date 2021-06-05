@@ -14,6 +14,7 @@ public class Main1 {
         AbstractApplicationContext ctx = new AnnotationConfigApplicationContext();
         Client client = ctx.getBean(Client.class);
         client.send();
+
         ctx.close();
     }
 }
