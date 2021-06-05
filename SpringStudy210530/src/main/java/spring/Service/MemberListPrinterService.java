@@ -1,19 +1,21 @@
-package spring.printer;
+package spring.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import spring.Dao.MemberDao;
 import spring.empty.Member;
+import spring.printer.MemberPrinter;
+import spring.printer.MemberSummaryPrinter;
 
 import java.util.Collection;
 
 @Component("listPrinter")
-public class MemberListPrinter {
+public class MemberListPrinterService {
     private MemberDao memberDao;
     private MemberPrinter printer;
 
-    public MemberListPrinter(MemberDao memberDao, MemberPrinter printer) {
+    public MemberListPrinterService(MemberDao memberDao, MemberPrinter printer) {
         this.memberDao = memberDao;
         this.printer = printer;
     }

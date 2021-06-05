@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import spring.Dao.MemberDao;
 import spring.Service.ChangePasswordService;
 import spring.Service.MemberRegisterService;
-import spring.printer.MemberInfoPrinter;
+import spring.Service.MemberInfoPrinterService;
 import spring.printer.MemberPrinter;
 import spring.printer.MemberSummaryPrinter;
 
@@ -52,8 +52,8 @@ public class AppCtx {
     }
 
     @Bean
-    public MemberInfoPrinter infoPrinter() {
-        MemberInfoPrinter infoPrinter = new MemberInfoPrinter();
+    public MemberInfoPrinterService infoPrinter() {
+        MemberInfoPrinterService infoPrinter = new MemberInfoPrinterService();
         return infoPrinter;
     }
 

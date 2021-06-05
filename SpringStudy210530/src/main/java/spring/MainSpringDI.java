@@ -9,8 +9,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import spring.Service.ChangePasswordService;
 import spring.Service.MemberRegisterService;
 import spring.empty.RegisterRequest;
-import spring.printer.MemberInfoPrinter;
-import spring.printer.MemberListPrinter;
+import spring.Service.MemberInfoPrinterService;
+import spring.Service.MemberListPrinterService;
 import spring.printer.MemberPrinter;
 
 import java.io.BufferedReader;
@@ -26,7 +26,7 @@ public class MainSpringDI {
 
         MemberPrinter memberPrinter = ctx.getBean("printer2", MemberPrinter.class);
         MemberPrinter memberPrinter2 = ctx.getBean("printer", MemberPrinter.class);
-        MemberInfoPrinter memberInfoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
+        MemberInfoPrinterService memberInfoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinterService.class);
 
 
         // 콘솔에서 입력받기 위해 System.in 을 이용해서 BufferedReader 생성
@@ -82,7 +82,7 @@ public class MainSpringDI {
             printHelp();
             return;
         }
-        MemberInfoPrinter infoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinter.class);
+        MemberInfoPrinterService infoPrinter = ctx.getBean("infoPrinter", MemberInfoPrinterService.class);
         infoPrinter.printMemberInfo(arg[1]);
     }
 
@@ -141,8 +141,8 @@ public class MainSpringDI {
     private static void processListCommand() {
         // 스프링 컨테이너에서 "listPrinter" 빈 객체를 구한다.
         //  이 빈 객체는 생성자를 통해서 MemberDao 객체와 MemberPrinter 객체를 주입 다는다.
-        MemberListPrinter listPrinter =
-                ctx.getBean("listPrinter", MemberListPrinter.class);
+        MemberListPrinterService listPrinter =
+                ctx.getBean("listPrinter", MemberListPrinterService.class);
 
         listPrinter.printAll();
     }

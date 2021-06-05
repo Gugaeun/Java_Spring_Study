@@ -1,12 +1,13 @@
-package spring.printer;
+package spring.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spring.Dao.MemberDao;
 import spring.empty.Member;
+import spring.printer.MemberPrinter;
 
 @Component("infoPrinter")
-public class MemberInfoPrinter {
+public class MemberInfoPrinterService {
     private MemberDao memberDao;
     private MemberPrinter printer;
 
