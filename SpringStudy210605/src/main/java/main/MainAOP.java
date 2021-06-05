@@ -66,7 +66,8 @@ public class MainAOP {
         System.out.println("cal1.factorial(1000) = " + factorialResult1);
         System.out.println(cal1.getClass().getName());
 
-        Calculator cal2 = ctx.getBean("calculator2", Calculator.class);
+        //Calculator cal2 = ctx.getBean("calculator2", Calculator.class);
+        CalculatorRecImpl cal2 = ctx.getBean("calculator2", CalculatorRecImpl.class);
         long factorialResult2 = cal2.factorial(1000);
         System.out.println("cal2.factorial(1000) = " + factorialResult2);
         System.out.println(cal2.getClass().getName());
