@@ -3,7 +3,7 @@ package module;
 public class NanoTimeCalculator implements Calculator{
     private Calculator delegate;
     public NanoTimeCalculator(Calculator delegate) {
-        this.delegate = delegate;
+        this.delegate = delegate; // delegate -> 위임하다는 뜻을 가지고 있음
     }
 
     @Override

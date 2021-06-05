@@ -1,9 +1,13 @@
 package main;
 
+import config.AppCtxAOP1;
 import module.Calculator;
 import module.CalculatorImpl;
 import module.CalculatorRecImpl;
 import module.NanoTimeCalculator;
+import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 
 public class MainAOP {
     public static void main(String[] args) {
@@ -25,11 +29,52 @@ public class MainAOP {
         //NanoTimeCalculator 는 사실 계산 기능 외에 다른 부가적인 기능(여기서는 시간을 측정)을 실행함
         //이렇게 핵심 기능의 실행은 다른 객체에 위임하고 부가적인 기능을 제공하는 객체를 프록시(proxy) 라고 함.
         //공통 기능 구현과 핵심 기능 구현을 분리하는 것이 AOP 의 핵심
+        //AOP 는 Aspect Oriented Programming 의 약자로서 여러 객체에 공통으로 적용할 수 있는 기능을 분리해서 재사용성을 높여주는 프로그래밍 기법이다.
         NanoTimeCalculator calculator3 = new NanoTimeCalculator(new CalculatorImpl());
         long result = calculator3.factorial(1000);
 
         NanoTimeCalculator calculator4 = new NanoTimeCalculator(new CalculatorImpl());
         result = calculator4.factorial(1000);
+
+        //핵심 기능에 공통 기능을 삽입하는 방법
+        // 1. 컴파일 시점의 코드에 공통 기능을 삽입
+        // 2. 클래스 로딩 시점의 바이트 코드에 공통 기능을 삽입
+        // 3. 런타임 시점에 프록시 객체를 생성해서 공통 기능을 삽입
+
+        //AOP 주요 용어
+        // 1. Advice : 언제 공통 관심 기능을 핵심 로직에 적용할 지를 정의하고 있음.
+        // 2. JoinPoint : Advice 를 적용 가능한 지점을 의미한다. 메서드 호출, 필드 값 변경 등 스프링은 메서드 호출에 대한 JoinPoint 만 지원한다.
+        // 3. PointCut : JoinPoint 의 부분 집합으로서 실제 Advice 가 적용되는 JoinPoint 를 나타낸다.
+        // 4. Weaving : Advice 를 핵심 로직 코드에 적용한다.
+        // 5. Aspect : 여러 객체에 공통으로 적용되는 기능
+
+        //스프링 프록시를 이용하여 메소드 호출 시점에 Aspect 를 적용
+        //1. Before Advice	: 대상 객체의 메서드 호출 전에 공통 기능을 실행
+        //2. After Returning Advice : 대상 객체의 메서드가 익셉션 없이 실행된 이후에 공통 기능을 실행
+        //3. After Throwing Advice : 대상 객체의 메서드를 실행하는 도중 익셉션이 발생한 경우에 공통 기능을 실행
+        //4. After Advice : 익셉션 발생 여부에 상관없이 메서드 실행 후 공통 기능 실행
+        //5. Around Advice : 메서드 실행 전/후 또는 익셉션 발생 시점에 공통 기능 실행
+        //이중에 널리 사용되는 것은 Around Advice 이다.
+        //왜냐하면 대상 객체의 메서드를 실행하기 전/후, 익셉션 발생 시점 등 다양한 시점에 원하는 기능을 삽입할 수 있기 때문이다.
+
+        System.out.println("====================================================");
+        //스프링 AOP 구현
+        //@Aspect, @PointCut, @Around 를 이용하여 AOP 구현 실습
+        AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtxAOP1.class);
+        Calculator cal1 = ctx.getBean("calculator1", Calculator.class);
+        long factorialResult1 = cal1.factorial(1000);
+        System.out.println("cal1.factorial(1000) = " + factorialResult1);
+        System.out.println(cal1.getClass().getName());
+
+        Calculator cal2 = ctx.getBean("calculator2", Calculator.class);
+        long factorialResult2 = cal2.factorial(1000);
+        System.out.println("cal2.factorial(1000) = " + factorialResult2);
+        System.out.println(cal2.getClass().getName());
+
+
+        ctx.close();
+
+
     }
 
 }
