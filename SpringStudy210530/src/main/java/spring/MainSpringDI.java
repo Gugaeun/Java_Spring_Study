@@ -11,7 +11,7 @@ import spring.Service.MemberRegisterService;
 import spring.empty.RegisterRequest;
 import spring.Service.MemberInfoPrinterService;
 import spring.Service.MemberListPrinterService;
-import spring.printer.MemberPrinter;
+import spring.helper.MemberPrinter;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

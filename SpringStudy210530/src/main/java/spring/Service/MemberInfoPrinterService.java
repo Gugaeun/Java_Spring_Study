@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spring.Dao.MemberDao;
 import spring.empty.Member;
-import spring.printer.MemberPrinter;
+import spring.helper.MemberPrinter;
 
 @Component("infoPrinter")
 public class MemberInfoPrinterService {

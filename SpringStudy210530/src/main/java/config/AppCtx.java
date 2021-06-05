@@ -7,8 +7,8 @@ import spring.Dao.MemberDao;
 import spring.Service.ChangePasswordService;
 import spring.Service.MemberRegisterService;
 import spring.Service.MemberInfoPrinterService;
-import spring.printer.MemberPrinter;
-import spring.printer.MemberSummaryPrinter;
+import spring.helper.MemberPrinter;
+import spring.helper.MemberSummaryPrinter;
 
 @Configuration
 public class AppCtx {

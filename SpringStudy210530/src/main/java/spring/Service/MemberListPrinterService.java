@@ -5,8 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import spring.Dao.MemberDao;
 import spring.empty.Member;
-import spring.printer.MemberPrinter;
-import spring.printer.MemberSummaryPrinter;
+import spring.helper.MemberPrinter;
+import spring.helper.MemberSummaryPrinter;
 
 import java.util.Collection;
 

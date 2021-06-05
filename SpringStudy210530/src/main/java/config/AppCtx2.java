@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import spring.printer.MemberInfoPrinter2;
-import spring.printer.MemberPrinter;
+import spring.helper.MemberPrinter;
 
 @Configuration
 public class AppCtx2 {

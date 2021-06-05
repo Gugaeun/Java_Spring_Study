@@ -1,6 +1,7 @@
-package spring.printer;
+package spring.helper;
 
 import spring.empty.Member;
+import spring.helper.MemberPrinter;
 
 public class MemberSummaryPrinter extends MemberPrinter {
     @Override
