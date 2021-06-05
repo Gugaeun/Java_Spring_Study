@@ -11,6 +11,25 @@ import java.util.Arrays;
 
 @Aspect
 public class ExeTimeAspect {
+
+    /**
+     * execution 표현식
+     * 기본 형식 : execution(수식어패턴 리턴타입패턴 클래스이름패턴 메서드이름패턴(파라미터패턴))
+     * 수식어 패턴 : public
+     * 리턴타입 패턴 : 리턴 타입을 명시
+     * 클래스이름패턴/메서드이름패턴 : 클래스 이름 및 메서드 이름을 명시
+     * 파라미터패턴 : 매칭될 파라미터에 대해서 명시
+     * -> 각 패턴은 '*' 를 이용해서 모든 값을 표현 가능
+     * '..' 를 이용하여 0개 이상이라는 의미를 표한 가능
+     * ----- execution 명시자 예시 ----
+     * 1. execution(public void set*(..)) -> 리턴 타입 void, 메서드 이름은 set 으로 시작, 파라미터는 0개 이상
+     * 2. execution(* module..*.*()) -> module 패키지의 타입에 속한 파라미터가 없는 모든 메소드 호출
+     * 3. execution(* module..*.*(..)) -> module 패키지 및 하위 패키지에 있는, 파라미터가 0개 이상인 메소드 호출
+     * 4. execution(Long module.Calculator.factorial(..)) -> 리턴 타입이 Long 인 Calculator 타입의 factorial()메소드 호출
+     * 5. execution(* get*(*)) -> 이름이 get 으로 시작하고 파라미터가 1개인 메소드 호출
+     * 6. execution(* get*(*, *)) -> 이름이 get 으로 시작하고 파라미터가 2개인 메소드 호출
+     * 7. execution(* read*(Integer, ..)) -> 이름이 read 으로 시작하고 첫번째 파라미터 타입이 Integer 이며, 한 개 이상의 파라미터를 갖는 메소드 호출
+     * */
     @Pointcut("execution(public * module..*(..))")
     public void publicTarget() {
         System.out.println("ExeTimeAspect.publicTarget() 실행");

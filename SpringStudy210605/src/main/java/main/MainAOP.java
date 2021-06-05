@@ -61,13 +61,16 @@ public class MainAOP {
         //스프링 AOP 구현
         //@Aspect, @PointCut, @Around 를 이용하여 AOP 구현 실습
         AbstractApplicationContext ctx = new AnnotationConfigApplicationContext(AppCtxAOP1.class);
-        Calculator cal1 = ctx.getBean("calculator1", Calculator.class);
+
+        // 자바 코드, "calculator1" 프록시의 실제 타입은 RecCalculator 를 상속받았으므로
+        // CalculatorRecImpl 로 타입 변환 가능 -> @EnableAspectJAutoProxy(proxyTargetClass = true)
+        //Calculator cal1 = ctx.getBean("calculator2", Calculator.class);
+        CalculatorRecImpl cal1 = ctx.getBean("calculator1", CalculatorRecImpl.class);
         long factorialResult1 = cal1.factorial(1000);
         System.out.println("cal1.factorial(1000) = " + factorialResult1);
         System.out.println(cal1.getClass().getName());
 
-        //Calculator cal2 = ctx.getBean("calculator2", Calculator.class);
-        CalculatorRecImpl cal2 = ctx.getBean("calculator2", CalculatorRecImpl.class);
+        Calculator cal2 = ctx.getBean("calculator2", Calculator.class);
         long factorialResult2 = cal2.factorial(1000);
         System.out.println("cal2.factorial(1000) = " + factorialResult2);
         System.out.println(cal2.getClass().getName());
