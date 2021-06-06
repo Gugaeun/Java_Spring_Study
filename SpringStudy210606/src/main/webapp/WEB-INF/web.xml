@@ -25,6 +25,7 @@
       <param-value>
         config.MvcConfig
         config.ControlConfig
+        config.MemberConfig
       </param-value>
     </init-param>
     <!-- 이 서블릿을 웹 어플리케이션을 구동할 때 실행하도록 설정-->
