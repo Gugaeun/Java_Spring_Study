@@ -1,7 +1,7 @@
 package config;
 
-import Aspect0.CacheAspect;
-import Aspect0.ExeTimeAspect;
+import aspect0.CacheAspect;
+import aspect0.ExeTimeAspect;
 import module.Calculator;
 import module.CalculatorImpl;
 import module.CalculatorRecImpl;

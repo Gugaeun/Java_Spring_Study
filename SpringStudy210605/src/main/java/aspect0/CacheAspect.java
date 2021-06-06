@@ -1,21 +1,22 @@
-package Aspect0;
+package aspect0;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @Aspect
+//@Order(2)  -> Aspect 실행 순서 세팅(번호가 높을수록 먼저 실행)
 public class CacheAspect {
     private Map<Long, Object> cache = new HashMap<>();
 
-    @Pointcut("execution(public * module..*(long))")
+    //@Pointcut("execution(public * module..*(long))")
     public void cacheTarget() {}
 
-    @Around("cacheTarget")
+    //@Around("cacheTarget")
+    @Around("execution(public * module..*(long))")
     public Object measure(ProceedingJoinPoint joinPoint) throws Throwable {
         //첫번재 인자를 Long 타입으로 세팅(-> factorial(num)의 num 값)
         Long num = (Long) joinPoint.getArgs()[0];
