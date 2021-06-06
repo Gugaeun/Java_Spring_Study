@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hello RAW jsp
+	Hello SpringMVC<br>
+	�λ縻: ${greeting}
 </body>
 </html>
