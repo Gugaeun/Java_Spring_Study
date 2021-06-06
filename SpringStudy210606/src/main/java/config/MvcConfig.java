@@ -11,6 +11,7 @@ import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.handler.SimpleUrlHandlerMapping;
@@ -23,14 +24,13 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 public class MvcConfig 
-//implements WebMvcConfigurer
+implements WebMvcConfigurer
 {
-
+	/*
 	@Bean
 	public HandlerMapping handlerMapping() {
-		
 		System.out.println("HandlerMapping handlerMapping() call");
-		RequestMappingHandlerMapping hm = new RequestMappingHandlerMapping();
+		RequestMappingHandlerMapping hm = new RequestMappingHandlerMapping(); 
 		hm.setOrder(0);
 		
 		return hm;
@@ -38,11 +38,11 @@ public class MvcConfig
 	
 	@Bean
 	public HandlerAdapter handlerAdapter() {
+		System.out.println("HandlerAdapter handlerAdapter() call");
 		return new RequestMappingHandlerAdapter();
 	}
-	
+	  
 	@Bean
-	
 	public HttpRequestHandler defaultServletHandler() {
 		System.out.println("HttpRequestHandler defaultServletHandler() call");
 		return new DefaultServletHttpRequestHandler();
@@ -60,34 +60,38 @@ public class MvcConfig
 	}
 	
 	@Bean
-	  public HandlerAdapter requestHandlerAdapter() {
+	public HandlerAdapter requestHandlerAdapter() {
 		System.out.println("HandlerAdapter requestHandlerAdapter() call");
 	    return new HttpRequestHandlerAdapter();
-	  }
+	}
 	
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver vr = new InternalResourceViewResolver();
 		vr.setPrefix("/WEB-INF/view/");
 		vr.setSuffix(".jsp");
-		
 		return vr;
 	}
+	*/
 	
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		// TODO Auto-generated method stub
+//		WebMvcConfigurer.super.configureDefaultServletHandling(configurer);
+		configurer.enable();
+	}
+
+	@Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+		// TODO Auto-generated method stub
+//		WebMvcConfigurer.super.configureViewResolvers(registry);
+		registry.jsp("/WEB-INF/view/", ".jsp");
+	}
 	
-//	@Override
-//	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-//		// TODO Auto-generated method stub
-//		//WebMvcConfigurer.super.configureDefaultServletHandling(Configure);
-//		configurer.enable();
-//	}
-//
-//	@Override
-//	public void configureViewResolvers(ViewResolverRegistry registry) {
-//		// TODO Auto-generated method stub
-//		//WebMvcConfigurer.super.configureViewResolvers(registry);
-//		registry.jsp("/WEB-INF/view/", ".jsp");
-//	}
+	@Override
+	public void addViewControllers(ViewControllerRegistry registry) {
+		registry.addViewController("/Main").setViewName("/Main");
+	}
 	
 
 }
