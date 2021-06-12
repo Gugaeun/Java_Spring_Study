@@ -23,26 +23,26 @@ public class MemberRegisterController {
 	}
 	
 //	@GetMapping("/register/step1")
-	@GetMapping("/step1")
+	@GetMapping("/Step1")
 	public String handleStep1(HttpServletRequest request) {
 //		String test1 = request.getParameter("test1");
 //		if(test1 == null || !test1.equals("true"))
 //			return "no_found";
 				
-		return "register/step1";
+		return "register/Step1";
 	}
 	
 //	@PostMapping("/register/step2")
-	@PostMapping("/step2")
+	@PostMapping("/Step2")
 	public String handleStep2(@RequestParam(value = "agree", defaultValue = "false") Boolean agree
 						      , Model model)
 	{
 		if(!agree) {
-			return "register/step1";
+			return "register/Step1";
 		}
 		
 		model.addAttribute("registerRequest", new RegisterRequest());
-		return "register/step2";
+		return "register/Step2";
 	}
 	
 }
