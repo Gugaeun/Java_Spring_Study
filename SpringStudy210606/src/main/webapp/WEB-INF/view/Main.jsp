@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>╦чюн х╜╦И</title>
+<meta charset="UTF-8">
+<title>К╘■Л²╦ М≥■К╘╢</title>
 </head>
 <body>
-	<p>х╞©╣гу╢о╢ы</p>
-	<p><a href="<c:url value='/register/Step1'/>">[х╦©Ь ╟║ютго╠Б]</a>
+	<p>М≥≤Л≤│М∙╘К▀┬К▀╓</p>
+	<p><a href="<c:url value='/register/Step1' />">[М ▄Л⌡░ Й╟─Л·┘М∙≤Й╦╟]</a>
 </body>
 </html>

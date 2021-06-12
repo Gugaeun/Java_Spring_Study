@@ -44,5 +44,12 @@ public class MemberRegisterController {
 		model.addAttribute("registerRequest", new RegisterRequest());
 		return "register/Step2";
 	}
+
+	@PostMapping("/Step3")
+	public String handleStep3(RegisterRequest regReq, Model model) {
+		long retMemberNum = memberRegisterService.regist(regReq);
+		model.addAttribute("registerRequest", new RegisterRequest());
+		return "register/Step3";
+	}
 	
 }
