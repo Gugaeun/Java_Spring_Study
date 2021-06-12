@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>결과</title>
 </head>
 <body>
-
+	응답 완료
 </body>
 </html>

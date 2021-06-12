@@ -32,5 +32,7 @@ public class ControlConfig {
 	public SurveyController surbeyController() {
 		return new SurveyController();
 	}
+	
+	
 
 }

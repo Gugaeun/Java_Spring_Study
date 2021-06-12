@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import survey.models.SurveyQuestion;
@@ -34,6 +35,11 @@ public class SurveyController {
 	public String surveyForm(Model model) {
 		model.addAttribute("questions", createQuestions());
 		return "survey/SurveyForm";
+	}
+	
+	@PostMapping
+	public String SurveySubmit() {
+		return "survey/Submitted"; 
 	}
 
 }
